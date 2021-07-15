@@ -6,11 +6,11 @@ import {
 import React, {FC} from 'react';
 
 import {LAUNCH, LAUNCHES} from '~/screens';
-import Launch from '~/screens/Launch';
+import Launch, {LaunchParams} from '~/screens/Launch';
 import Launches from '~/screens/Launches';
 
 type ParamsList = {
-  [LAUNCH]: undefined;
+  [LAUNCH]: LaunchParams;
   [LAUNCHES]: undefined;
 };
 

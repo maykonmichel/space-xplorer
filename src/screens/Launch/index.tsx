@@ -1,6 +1,6 @@
 import {Route, useRoute} from '@react-navigation/native';
 import React, {FC} from 'react';
-import {Text, View} from 'react-native';
+import {Linking, Text, View} from 'react-native';
 
 import {useLaunchQuery} from '~/data/launch';
 import Slider from '~/molecules/Slider';
@@ -31,11 +31,13 @@ const Launch: FC = () => {
 
   const images = flickr_images.slice(0, 3);
 
+  const openArticle = () => Linking.openURL(article_link);
+
   return (
     <View>
       <Text>{rocket_name}</Text>
       <Slider data={images} />
-      <Text>{article_link}</Text>
+      <Text onPress={openArticle}>{article_link}</Text>
     </View>
   );
 };

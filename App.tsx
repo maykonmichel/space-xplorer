@@ -1,12 +1,16 @@
 import {ApolloProvider} from '@apollo/client';
 import React from 'react';
 
-import api from '~/data/api';
+import {useApiClient} from '~/data/api';
 import NavigatorsContainer from '~/navigators/Container';
 
 export default () => {
+  const client = useApiClient();
+
+  if (!client) return null;
+
   return (
-    <ApolloProvider client={api}>
+    <ApolloProvider client={client}>
       <NavigatorsContainer />
     </ApolloProvider>
   );

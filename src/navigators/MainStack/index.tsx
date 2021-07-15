@@ -22,7 +22,7 @@ export const useMainStackNavigation = () => useNavigation<NavigationProp>();
 
 const MainStack: FC = () => {
   return (
-    <Navigator>
+    <Navigator initialRouteName={LAUNCHES}>
       <Screen name={LAUNCH} component={Launch} />
       <Screen name={LAUNCHES} component={Launches} />
     </Navigator>

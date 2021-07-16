@@ -2,32 +2,94 @@
 
 exports[`<LaunchImages /> should render as expected 1`] = `
 <RCTScrollView
+  activeAnimationOptions={null}
+  activeAnimationType="timing"
+  activeSlideAlignment="center"
+  activeSlideOffset={20}
+  apparitionDelay={0}
+  automaticallyAdjustContentInsets={false}
+  autoplay={false}
+  autoplayDelay={1000}
+  autoplayInterval={3000}
+  callbackOffsetMargin={5}
+  containerCustomStyle={Object {}}
+  contentContainerCustomStyle={Object {}}
+  contentContainerStyle={
+    Array [
+      Object {
+        "paddingLeft": 75,
+        "paddingRight": 75,
+      },
+      Object {},
+    ]
+  }
   data={
     Array [
       "http://placeimg.com/640/480",
     ]
   }
+  decelerationRate="fast"
+  directionalLockEnabled={true}
   disableVirtualization={false}
+  enableMomentum={false}
+  enableSnap={true}
+  firstItem={0}
+  forwardedRef={[Function]}
   getItem={[Function]}
   getItemCount={[Function]}
+  hasParallaxImages={false}
   horizontal={true}
-  initialNumToRender={10}
+  inactiveSlideOpacity={0.7}
+  inactiveSlideScale={0.9}
+  inactiveSlideShift={0}
+  initialNumToRender={7}
+  invertStickyHeaders={false}
+  inverted={false}
+  itemWidth={600}
   keyExtractor={[Function]}
-  maxToRenderPerBatch={10}
+  layout="default"
+  lockScrollTimeoutDuration={1000}
+  lockScrollWhileSnapping={false}
+  loop={false}
+  loopClonesPerSide={3}
+  maxToRenderPerBatch={15}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={2}
   onLayout={[Function]}
   onMomentumScrollEnd={[Function]}
+  onResponderRelease={[Function]}
   onScroll={[Function]}
   onScrollBeginDrag={[Function]}
   onScrollEndDrag={[Function]}
-  removeClippedSubviews={false}
+  onStartShouldSetResponderCapture={[Function]}
+  onTouchEnd={[Function]}
+  onTouchStart={[Function]}
+  overScrollMode="never"
+  pinchGestureEnabled={false}
+  removeClippedSubviews={true}
   renderItem={[Function]}
-  scrollEventThrottle={50}
+  scrollEnabled={true}
+  scrollEventThrottle={1}
+  scrollsToTop={false}
+  shouldOptimizeUpdates={true}
+  showsHorizontalScrollIndicator={false}
+  showsVerticalScrollIndicator={false}
+  slideStyle={Object {}}
+  sliderWidth={750}
   stickyHeaderIndices={Array []}
+  style={
+    Object {
+      "flexDirection": "row",
+      "opacity": 0,
+      "width": 750,
+    }
+  }
+  swipeThreshold={20}
   updateCellsBatchingPeriod={50}
+  useScrollView={false}
+  vertical={false}
   viewabilityConfigCallbackPairs={Array []}
-  windowSize={21}
+  windowSize={15}
 >
   <View>
     <View
@@ -42,53 +104,68 @@ exports[`<LaunchImages /> should render as expected 1`] = `
       }
     >
       <View
-        accessibilityLabel="Toggle favorite"
-        accessible={true}
-        focusable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+        pointerEvents="box-none"
         style={
           Object {
             "opacity": 1,
+            "transform": Array [
+              Object {
+                "scale": 1,
+              },
+            ],
+            "width": 600,
           }
         }
       >
         <View
+          accessibilityLabel="Toggle favorite"
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "overflow": "hidden",
-              },
-              Object {
-                "height": 100,
-                "width": 200,
-              },
-            ]
+            Object {
+              "opacity": 1,
+            }
           }
         >
-          <FastImageView
-            accessibilityRole="image"
-            resizeMode="cover"
-            source={
-              Object {
-                "uri": "http://placeimg.com/640/480",
-              }
-            }
+          <View
             style={
-              Object {
-                "bottom": 0,
-                "left": 0,
-                "position": "absolute",
-                "right": 0,
-                "top": 0,
-              }
+              Array [
+                Object {
+                  "overflow": "hidden",
+                },
+                Object {
+                  "aspectRatio": 1.7777777777777777,
+                  "width": "100%",
+                },
+              ]
             }
-          />
+          >
+            <FastImageView
+              accessibilityRole="image"
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "http://placeimg.com/640/480",
+                }
+              }
+              style={
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                }
+              }
+            />
+          </View>
         </View>
       </View>
     </View>

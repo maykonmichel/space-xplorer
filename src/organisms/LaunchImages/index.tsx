@@ -1,11 +1,15 @@
 import React, {FC} from 'react';
-import {FlatList, ListRenderItem} from 'react-native';
+import {Dimensions, ListRenderItem} from 'react-native';
+import Carousel from 'react-native-snap-carousel';
 
 import LaunchImage from '~/molecules/LaunchImage';
 
 import useLaunchImages from './useLaunchImages';
 
 const keyExtractor = (uri: string, index: number) => `${uri}_${index}`;
+
+const {width: sliderWidth} = Dimensions.get('window');
+const itemWidth = sliderWidth * 0.8;
 
 export type Props = {
   data: string[];
@@ -19,11 +23,12 @@ const LaunchImages: FC<Props> = ({data}) => {
   );
 
   return (
-    <FlatList
+    <Carousel
       data={slice}
       keyExtractor={keyExtractor}
       renderItem={renderItem}
-      horizontal
+      sliderWidth={sliderWidth}
+      itemWidth={itemWidth}
     />
   );
 };

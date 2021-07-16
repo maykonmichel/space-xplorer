@@ -25,8 +25,8 @@ exports[`<LaunchImage /> should render as expected 1`] = `
           "overflow": "hidden",
         },
         Object {
-          "height": 100,
-          "width": 200,
+          "aspectRatio": 1.7777777777777777,
+          "width": "100%",
         },
       ]
     }

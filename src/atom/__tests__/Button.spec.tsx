@@ -1,4 +1,4 @@
-import {render} from '@testing-library/react-native';
+import {fireEvent, render} from '@testing-library/react-native';
 import faker from 'faker';
 import React from 'react';
 
@@ -24,5 +24,18 @@ describe('<Button />', () => {
     const {title} = props;
 
     expect(queryByText(title)).toBeTruthy();
+  });
+
+  it('should emit press event', () => {
+    const props = getProps();
+    const {getByRole} = render(<Button {...props} />);
+
+    const button = getByRole('button');
+
+    fireEvent.press(button);
+
+    const {onPress} = props;
+
+    expect(onPress).toBeCalled();
   });
 });

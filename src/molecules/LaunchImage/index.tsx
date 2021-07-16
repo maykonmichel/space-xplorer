@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
-import {Image, TouchableOpacity} from 'react-native';
+import {TouchableOpacity} from 'react-native';
+import FastImage from 'react-native-fast-image';
 
 import styles from './styles';
 
@@ -13,7 +14,11 @@ const LaunchImage: FC<Props> = ({onPress, uri}) => {
 
   return (
     <TouchableOpacity onPress={emit} accessibilityLabel={'Toggle favorite'}>
-      <Image source={{uri}} style={styles.image} accessibilityRole={'image'} />
+      <FastImage
+        source={{uri}}
+        style={styles.image}
+        accessibilityRole={'image'}
+      />
     </TouchableOpacity>
   );
 };

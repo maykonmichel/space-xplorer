@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
-import {Image, Text, TouchableOpacity} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
+import FastImage from 'react-native-fast-image';
 
 import {Launch} from '~/data/launch';
 import {useMainStackNavigation} from '~/navigators/MainStack';
@@ -29,7 +30,7 @@ const LaunchCard: FC<Props> = ({
       <Text accessibilityLabel={'Launch name'}>{mission_name}</Text>
       <Text accessibilityLabel={'Launch date'}>{launch_date_local}</Text>
       {uri && (
-        <Image
+        <FastImage
           accessibilityLabel={'Launch image'}
           source={{uri}}
           style={styles.image}

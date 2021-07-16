@@ -3,7 +3,7 @@ import React, {FC} from 'react';
 import {Linking, Text, View} from 'react-native';
 
 import {useLaunchQuery} from '~/data/launch';
-import Slider from '~/molecules/Slider';
+import LaunchImages from '~/organisms/LaunchImages';
 
 import {LAUNCH} from '~/screens';
 
@@ -36,7 +36,7 @@ const Launch: FC = () => {
   return (
     <View>
       <Text>{rocket_name}</Text>
-      <Slider data={images} />
+      <LaunchImages data={images} />
       <Text onPress={openArticle}>{article_link}</Text>
     </View>
   );

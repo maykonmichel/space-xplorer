@@ -9,7 +9,7 @@ type Props = {
   data: string[];
 };
 
-const Slider: FC<Props> = ({data}) => {
+const LaunchImages: FC<Props> = ({data}) => {
   const {
     client: {cache},
     data: {favoriteImages = []} = {},
@@ -41,4 +41,4 @@ const Slider: FC<Props> = ({data}) => {
   );
 };
 
-export default Slider;
+export default LaunchImages;

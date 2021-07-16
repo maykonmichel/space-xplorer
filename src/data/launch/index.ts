@@ -25,6 +25,7 @@ const QUERY = gql`
         article_link
         flickr_images
       }
+      mission_name
       rocket {
         rocket_name
       }

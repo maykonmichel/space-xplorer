@@ -31,7 +31,11 @@ const MainStack: FC = () => {
   return (
     <Navigator initialRouteName={LAUNCHES} screenOptions={screenOptions}>
       <Screen name={LAUNCH} component={Launch} />
-      <Screen name={LAUNCHES} component={Launches} />
+      <Screen
+        name={LAUNCHES}
+        component={Launches}
+        options={{title: 'Space X launches'}}
+      />
     </Navigator>
   );
 };

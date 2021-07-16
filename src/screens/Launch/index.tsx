@@ -1,8 +1,9 @@
 import {Route, useRoute} from '@react-navigation/native';
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 import {Linking, Text, View} from 'react-native';
 
 import {useLaunchQuery} from '~/data/launch';
+import {useMainStackNavigation} from '~/navigators/MainStack';
 import LaunchImages from '~/organisms/LaunchImages';
 
 import {LAUNCH} from '~/screens';
@@ -17,8 +18,13 @@ const Launch: FC = () => {
   const {
     params: {id},
   } = useRoute<RouteProp>();
+  const {setOptions} = useMainStackNavigation();
 
   const {data} = useLaunchQuery(id);
+
+  useEffect(() => {
+    setOptions({title: data?.launch.mission_name});
+  }, [data?.launch.mission_name, setOptions]);
 
   if (!data) return null;
 

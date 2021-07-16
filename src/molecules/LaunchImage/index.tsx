@@ -13,7 +13,7 @@ const LaunchImage: FC<Props> = ({onPress, uri}) => {
 
   return (
     <TouchableOpacity onPress={emit} accessibilityLabel={'Toggle favorite'}>
-      <Image source={{uri}} style={styles.image} />
+      <Image source={{uri}} style={styles.image} accessibilityRole={'image'} />
     </TouchableOpacity>
   );
 };

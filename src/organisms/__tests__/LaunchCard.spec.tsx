@@ -65,4 +65,17 @@ describe('<LaunchCard />', () => {
       launch_date_local,
     );
   });
+
+  it('should show first image of flickr if exists', async () => {
+    const props = getProps();
+    const {getByA11yLabel} = getSut(props);
+
+    const {
+      links: {
+        flickr_images: [uri],
+      },
+    } = props;
+
+    expect(getByA11yLabel('Launch image').props.source.uri).toBe(uri);
+  });
 });

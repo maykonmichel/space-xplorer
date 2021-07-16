@@ -2,6 +2,8 @@
 
 exports[`<LaunchCard /> should render as expected 1`] = `
 <View
+  accessibilityHint="See launch details"
+  accessibilityLabel="Launch card"
   accessible={true}
   focusable={true}
   onClick={[Function]}
@@ -17,13 +19,18 @@ exports[`<LaunchCard /> should render as expected 1`] = `
     }
   }
 >
-  <Text>
+  <Text
+    accessibilityLabel="Launch name"
+  >
     mission name
   </Text>
-  <Text>
+  <Text
+    accessibilityLabel="Launch date"
+  >
     01/01/1998
   </Text>
   <Image
+    accessibilityLabel="Launch image"
     source={
       Object {
         "uri": "http://placeimg.com/640/480",

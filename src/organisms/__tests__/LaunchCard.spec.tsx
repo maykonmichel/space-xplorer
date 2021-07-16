@@ -45,4 +45,13 @@ describe('<LaunchCard />', () => {
 
     expect(toJSON()).toMatchSnapshot();
   });
+
+  it('should show launch name', async () => {
+    const props = getProps();
+    const {getByA11yLabel} = getSut(props);
+
+    const {mission_name} = props;
+
+    expect(getByA11yLabel('Launch name').props.children).toBe(mission_name);
+  });
 });

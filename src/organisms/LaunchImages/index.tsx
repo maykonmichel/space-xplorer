@@ -1,7 +1,8 @@
 import React, {FC} from 'react';
-import {FlatList, Image, ListRenderItem, TouchableOpacity} from 'react-native';
+import {FlatList, ListRenderItem} from 'react-native';
 
 import {useFavoriteImages} from '~/data/favoriteImages';
+import LaunchImage from '~/molecules/LaunchImage';
 
 const keyExtractor = (uri: string) => uri;
 
@@ -26,9 +27,7 @@ const LaunchImages: FC<Props> = ({data}) => {
     });
 
   const renderItem: ListRenderItem<string> = ({item}) => (
-    <TouchableOpacity onPress={() => toggleFavorite(item)}>
-      <Image source={{uri: item}} style={{width: 200, height: 100}} />
-    </TouchableOpacity>
+    <LaunchImage uri={item} onPress={toggleFavorite} />
   );
 
   return (

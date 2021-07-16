@@ -22,10 +22,19 @@ const LaunchCard: FC<Props> = ({
   const [uri] = flickr_images;
 
   return (
-    <TouchableOpacity onPress={onPress}>
-      <Text>{mission_name}</Text>
-      <Text>{launch_date_local}</Text>
-      {uri && <Image source={{uri}} style={styles.image} />}
+    <TouchableOpacity
+      accessibilityLabel={'Launch card'}
+      accessibilityHint={'See launch details'}
+      onPress={onPress}>
+      <Text accessibilityLabel={'Launch name'}>{mission_name}</Text>
+      <Text accessibilityLabel={'Launch date'}>{launch_date_local}</Text>
+      {uri && (
+        <Image
+          accessibilityLabel={'Launch image'}
+          source={{uri}}
+          style={styles.image}
+        />
+      )}
     </TouchableOpacity>
   );
 };

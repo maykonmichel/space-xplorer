@@ -54,4 +54,15 @@ describe('<LaunchCard />', () => {
 
     expect(getByA11yLabel('Launch name').props.children).toBe(mission_name);
   });
+
+  it('should show launch date', async () => {
+    const props = getProps();
+    const {getByA11yLabel} = getSut(props);
+
+    const {launch_date_local} = props;
+
+    expect(getByA11yLabel('Launch date').props.children).toBe(
+      launch_date_local,
+    );
+  });
 });

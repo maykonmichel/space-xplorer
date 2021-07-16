@@ -1,5 +1,6 @@
 import {Route, useRoute} from '@react-navigation/native';
 import {useEffect} from 'react';
+import {Linking} from 'react-native';
 import {useLaunchQuery} from '~/data/launch';
 import {useMainStackNavigation} from '~/navigators/MainStack';
 
@@ -21,5 +22,11 @@ export default () => {
     setOptions({title: launch?.mission_name});
   }, [launch?.mission_name, setOptions]);
 
-  return launch;
+  const openArticle = () =>
+    launch?.links.article_link && Linking.openURL(launch.links.article_link);
+
+  return {
+    launch,
+    openArticle,
+  };
 };

@@ -1,7 +1,7 @@
 export default {
   primary: {
     dark: '#B61827',
-    main: '#Ef5350',
+    main: '#EF5350',
     light: '#FF867C',
   },
   secondary: {

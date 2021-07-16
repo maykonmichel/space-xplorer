@@ -11,6 +11,7 @@ type LaunchRocket = {
 
 export type Launch = {
   id: string;
+  details: string;
   launch_date_formatted: string;
   links: LaunchLinks;
   mission_name: string;
@@ -21,7 +22,8 @@ const QUERY = gql`
   query ($id: ID!) {
     launch(id: $id) {
       id
-      launch_date_formatted
+      details
+      launch_date_formatted @client
       links {
         article_link
         flickr_images

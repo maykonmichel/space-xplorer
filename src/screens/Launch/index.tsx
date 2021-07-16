@@ -1,48 +1,38 @@
-import {Route, useRoute} from '@react-navigation/native';
-import React, {FC, useEffect} from 'react';
-import {Linking, Text, View} from 'react-native';
+import React, {FC} from 'react';
+import {ScrollView, Text} from 'react-native';
 
-import {useLaunchQuery} from '~/data/launch';
-import {useMainStackNavigation} from '~/navigators/MainStack';
+import Button from '~/atom/Button';
 import LaunchImages from '~/organisms/LaunchImages';
 
-import {LAUNCH} from '~/screens';
-
-export type LaunchParams = {
-  id: string;
-};
-
-type RouteProp = Route<typeof LAUNCH, LaunchParams>;
+import styles from './styles';
+import useLaunchScreen from './useLaunchScreen';
 
 const Launch: FC = () => {
-  const {
-    params: {id},
-  } = useRoute<RouteProp>();
-  const {setOptions} = useMainStackNavigation();
+  const {launch, openArticle} = useLaunchScreen();
 
-  const {data} = useLaunchQuery(id);
-
-  useEffect(() => {
-    setOptions({title: data?.launch.mission_name});
-  }, [data?.launch.mission_name, setOptions]);
-
-  if (!data) return null;
+  if (!launch) return null;
 
   const {
-    launch: {
-      rocket: {rocket_name},
-      links: {article_link, flickr_images},
-    },
-  } = data;
-
-  const openArticle = () => Linking.openURL(article_link);
+    details,
+    launch_date_formatted,
+    links: {article_link, flickr_images},
+    rocket: {rocket_name},
+  } = launch;
 
   return (
-    <View>
-      <Text>{rocket_name}</Text>
+    <ScrollView>
+      <Text style={styles.title}>{rocket_name}</Text>
+      <Text style={styles.date}>{launch_date_formatted}</Text>
       <LaunchImages data={flickr_images} />
-      <Text onPress={openArticle}>{article_link}</Text>
-    </View>
+      <Text style={styles.details}>{details}</Text>
+      {article_link && (
+        <Button
+          title={'Read article'}
+          onPress={openArticle}
+          style={styles.button}
+        />
+      )}
+    </ScrollView>
   );
 };
 

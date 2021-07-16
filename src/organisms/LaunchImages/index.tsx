@@ -4,6 +4,7 @@ import Carousel from 'react-native-snap-carousel';
 
 import LaunchImage from '~/molecules/LaunchImage';
 
+import styles from './styles';
 import useLaunchImages from './useLaunchImages';
 
 const keyExtractor = (uri: string, index: number) => `${uri}_${index}`;
@@ -29,6 +30,7 @@ const LaunchImages: FC<Props> = ({data}) => {
       renderItem={renderItem}
       sliderWidth={sliderWidth}
       itemWidth={itemWidth}
+      contentContainerCustomStyle={styles.container}
     />
   );
 };

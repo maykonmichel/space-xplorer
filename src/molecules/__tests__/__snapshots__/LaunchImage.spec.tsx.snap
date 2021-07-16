@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LaunchImage /> should render as expected 1`] = `
+<View
+  accessibilityLabel="Toggle favorite"
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+>
+  <Image
+    accessibilityRole="image"
+    source={
+      Object {
+        "uri": "http://placeimg.com/640/480",
+      }
+    }
+    style={
+      Object {
+        "height": 100,
+        "width": 200,
+      }
+    }
+  />
+</View>
+`;

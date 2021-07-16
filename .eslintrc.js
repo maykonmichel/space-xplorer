@@ -3,6 +3,7 @@ module.exports = {
   extends: '@react-native-community',
   rules: {
     'no-console': 'error',
+    'react-native/no-inline-styles': 'error',
     curly: ['error', 'multi'],
   },
   env: {

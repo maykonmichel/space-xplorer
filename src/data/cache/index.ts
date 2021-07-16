@@ -1,5 +1,7 @@
 import {InMemoryCache} from '@apollo/client';
 
+import {initializeFavoriteImages} from '~/data/favoriteImages';
+
 const cache = new InMemoryCache({
   typePolicies: {
     LaunchLinks: {
@@ -7,5 +9,7 @@ const cache = new InMemoryCache({
     },
   },
 });
+
+initializeFavoriteImages(cache);
 
 export default cache;

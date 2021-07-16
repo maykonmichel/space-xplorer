@@ -1,39 +1,19 @@
-import {Route, useRoute} from '@react-navigation/native';
-import React, {FC, useEffect} from 'react';
+import React, {FC} from 'react';
 import {Linking, Text, View} from 'react-native';
 
-import {useLaunchQuery} from '~/data/launch';
-import {useMainStackNavigation} from '~/navigators/MainStack';
 import LaunchImages from '~/organisms/LaunchImages';
 
-import {LAUNCH} from '~/screens';
-
-export type LaunchParams = {
-  id: string;
-};
-
-type RouteProp = Route<typeof LAUNCH, LaunchParams>;
+import useLaunch from './useLaunch';
 
 const Launch: FC = () => {
-  const {
-    params: {id},
-  } = useRoute<RouteProp>();
-  const {setOptions} = useMainStackNavigation();
+  const launch = useLaunch();
 
-  const {data} = useLaunchQuery(id);
-
-  useEffect(() => {
-    setOptions({title: data?.launch.mission_name});
-  }, [data?.launch.mission_name, setOptions]);
-
-  if (!data) return null;
+  if (!launch) return null;
 
   const {
-    launch: {
-      rocket: {rocket_name},
-      links: {article_link, flickr_images},
-    },
-  } = data;
+    links: {article_link, flickr_images},
+    rocket: {rocket_name},
+  } = launch;
 
   const openArticle = () => Linking.openURL(article_link);
 

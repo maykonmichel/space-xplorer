@@ -7,7 +7,8 @@ import {
 import React, {FC} from 'react';
 
 import {LAUNCH, LAUNCHES} from '~/screens';
-import Launch, {LaunchParams} from '~/screens/Launch';
+import Launch from '~/screens/Launch';
+import {LaunchParams} from '~/screens/Launch/types';
 import Launches from '~/screens/Launches';
 import colors from '~/theme/colors';
 

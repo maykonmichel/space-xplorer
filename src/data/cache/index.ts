@@ -10,6 +10,10 @@ const cache = new InMemoryCache({
   },
 });
 
-initializeFavoriteImages(cache);
+export const initializeCache = () => {
+  initializeFavoriteImages(cache);
+};
+
+initializeCache();
 
 export default cache;

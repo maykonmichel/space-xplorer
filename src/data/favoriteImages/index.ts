@@ -15,12 +15,16 @@ type Data = {
   favoriteImages: string[];
 };
 
-const data: Data = {
-  favoriteImages: [],
-};
+export const readFavoriteImages = (cache: ApolloCache<NormalizedCacheObject>) =>
+  cache.readQuery<Data>({query: QUERY});
+
+export const writeFavoriteImages = (
+  cache: ApolloCache<NormalizedCacheObject>,
+  favoriteImages: string[] = [],
+) => cache.writeQuery<Data>({query: QUERY, data: {favoriteImages}});
 
 export const initializeFavoriteImages = (
   cache: ApolloCache<NormalizedCacheObject>,
-) => cache.writeQuery<Data>({query: QUERY, data});
+) => writeFavoriteImages(cache);
 
 export const useFavoriteImages = () => useQuery<Data>(QUERY);

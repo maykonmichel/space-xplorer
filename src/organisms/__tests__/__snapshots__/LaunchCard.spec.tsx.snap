@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LaunchCard /> should render as expected 1`] = `
+<View
+  accessibilityHint="See launch details"
+  accessibilityLabel="Launch card"
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+>
+  <Text
+    accessibilityLabel="Launch name"
+  >
+    mission name
+  </Text>
+  <Text
+    accessibilityLabel="Launch date"
+  >
+    01/01/1998
+  </Text>
+  <Image
+    accessibilityLabel="Launch image"
+    source={
+      Object {
+        "uri": "http://placeimg.com/640/480",
+      }
+    }
+    style={
+      Object {
+        "height": 100,
+        "width": 200,
+      }
+    }
+  />
+</View>
+`;

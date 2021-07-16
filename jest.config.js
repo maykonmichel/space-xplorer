@@ -1,5 +1,13 @@
 const {defaults} = require('ts-jest/presets');
 
+const ignoreLibs = [
+  '@react-native',
+  'react-native',
+  'react-native-iphone-x-helper',
+  '@react-navigation',
+  'react-native-snap-carousel',
+];
+
 module.exports = {
   ...defaults,
   preset: 'react-native',
@@ -15,7 +23,5 @@ module.exports = {
     },
   },
   cacheDirectory: '.jest/cache',
-  transformIgnorePatterns: [
-    'node_modules/(?!(@react-native|react-native|react-native-iphone-x-helper|@react-navigation)/)',
-  ],
+  transformIgnorePatterns: [`node_modules/(?!(${ignoreLibs.join('|')})/)`],
 };

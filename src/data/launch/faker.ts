@@ -8,6 +8,7 @@ export const fakerFlickrImages = (): Launch['links']['flickr_images'] =>
 
 export const fakerLaunch = (): Launch => ({
   id: faker.datatype.number().toString(),
+  details: faker.lorem.paragraph(),
   mission_name: faker.random.words(),
   launch_date_formatted: faker.date.past().toLocaleDateString(),
   links: {

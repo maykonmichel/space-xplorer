@@ -16,4 +16,13 @@ describe('<Button />', () => {
 
     expect(toJSON()).toMatchSnapshot();
   });
+
+  it('should show title', () => {
+    const props = getProps();
+    const {queryByText} = render(<Button {...props} />);
+
+    const {title} = props;
+
+    expect(queryByText(title)).toBeTruthy();
+  });
 });

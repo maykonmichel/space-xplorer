@@ -21,6 +21,7 @@
     "ramda": "^0.27.1",
     "react": "17.0.1",
     "react-native": "0.64.1",
+    "react-native-fast-image": "^8.3.6",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-reanimated": "^1.13.3",
     "react-native-safe-area-context": "^3.2.0",

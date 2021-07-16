@@ -5,7 +5,11 @@ import {Launch} from '~/data/launch';
 import {useMainStackNavigation} from '~/navigators/MainStack';
 import {LAUNCH} from '~/screens';
 
-const LaunchCard: FC<Launch> = ({
+import styles from './styles';
+
+export type Props = Launch;
+
+const LaunchCard: FC<Props> = ({
   id,
   mission_name,
   launch_date_local,
@@ -21,7 +25,7 @@ const LaunchCard: FC<Launch> = ({
     <TouchableOpacity onPress={onPress}>
       <Text>{mission_name}</Text>
       <Text>{launch_date_local}</Text>
-      {uri && <Image source={{uri}} style={{width: 200, height: 100}} />}
+      {uri && <Image source={{uri}} style={styles.image} />}
     </TouchableOpacity>
   );
 };

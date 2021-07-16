@@ -3,7 +3,7 @@ import {FlatList, ListRenderItem} from 'react-native';
 
 import {Launch} from '~/data/launch';
 import {useLaunchesQuery} from '~/data/launch/launches';
-import LaunchCard from '~/molecules/LaunchCard';
+import LaunchCard from '~/organisms/LaunchCard';
 
 const keyExtractor = ({id}: Launch) => id;
 

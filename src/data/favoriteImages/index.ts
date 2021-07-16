@@ -23,4 +23,7 @@ export const initializeFavoriteImages = (
   cache: ApolloCache<NormalizedCacheObject>,
 ) => cache.writeQuery<Data>({query: QUERY, data});
 
+export const readFavoriteImages = (cache: ApolloCache<NormalizedCacheObject>) =>
+  cache.readQuery<Data>({query: QUERY});
+
 export const useFavoriteImages = () => useQuery<Data>(QUERY);

@@ -40,7 +40,7 @@ describe('<LaunchCard />', () => {
     const {toJSON} = getSut({
       ...props,
       mission_name: 'mission name',
-      launch_date_local: '01/01/1998',
+      launch_date_formatted: '01/01/1998 00:00am',
       links: {
         ...props.links,
         flickr_images: [faker.image.imageUrl()],
@@ -63,10 +63,10 @@ describe('<LaunchCard />', () => {
     const props = getProps();
     const {getByA11yLabel} = getSut(props);
 
-    const {launch_date_local} = props;
+    const {launch_date_formatted} = props;
 
     expect(getByA11yLabel('Launch date').props.children).toBe(
-      launch_date_local,
+      launch_date_formatted,
     );
   });
 

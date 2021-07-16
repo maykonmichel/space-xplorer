@@ -58,20 +58,38 @@ exports[`<LaunchImages /> should render as expected 1`] = `
           }
         }
       >
-        <Image
-          accessibilityRole="image"
-          source={
-            Object {
-              "uri": "http://placeimg.com/640/480",
-            }
-          }
+        <View
           style={
-            Object {
-              "height": 100,
-              "width": 200,
-            }
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              Object {
+                "height": 100,
+                "width": 200,
+              },
+            ]
           }
-        />
+        >
+          <FastImageView
+            accessibilityRole="image"
+            resizeMode="cover"
+            source={
+              Object {
+                "uri": "http://placeimg.com/640/480",
+              }
+            }
+            style={
+              Object {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              }
+            }
+          />
+        </View>
       </View>
     </View>
   </View>

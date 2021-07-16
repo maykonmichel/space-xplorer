@@ -15,33 +15,83 @@ exports[`<LaunchCard /> should render as expected 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "backgroundColor": "#FAFAFA",
+      "borderRadius": 4,
+      "marginHorizontal": 16,
+      "marginVertical": 8,
       "opacity": 1,
     }
   }
 >
+  <View
+    style={
+      Array [
+        Object {
+          "overflow": "hidden",
+        },
+        Object {
+          "aspectRatio": 1.7777777777777777,
+          "borderTopLeftRadius": 4,
+          "borderTopRightRadius": 4,
+          "width": "100%",
+        },
+      ]
+    }
+  >
+    <FastImageView
+      accessibilityLabel="Launch image"
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "http://placeimg.com/640/480",
+        }
+      }
+      style={
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    />
+  </View>
   <Text
     accessibilityLabel="Launch name"
+    style={
+      Object {
+        "color": "#212121",
+        "fontSize": 24,
+        "margin": 16,
+        "marginBottom": 4,
+      }
+    }
   >
     mission name
   </Text>
   <Text
     accessibilityLabel="Launch date"
-  >
-    01/01/1998
-  </Text>
-  <Image
-    accessibilityLabel="Launch image"
-    source={
-      Object {
-        "uri": "http://placeimg.com/640/480",
-      }
-    }
     style={
       Object {
-        "height": 100,
-        "width": 200,
+        "color": "#9E9E9E",
+        "marginHorizontal": 16,
       }
     }
-  />
+  >
+    01/01/1998 00:00am
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#FF77A9",
+        "fontWeight": "bold",
+        "margin": 16,
+        "textTransform": "uppercase",
+      }
+    }
+  >
+    See more
+  </Text>
 </View>
 `;

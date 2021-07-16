@@ -29,14 +29,12 @@ const Launch: FC = () => {
     },
   } = data;
 
-  const images = flickr_images.slice(0, 3);
-
   const openArticle = () => Linking.openURL(article_link);
 
   return (
     <View>
       <Text>{rocket_name}</Text>
-      <LaunchImages data={images} />
+      <LaunchImages data={flickr_images} />
       <Text onPress={openArticle}>{article_link}</Text>
     </View>
   );

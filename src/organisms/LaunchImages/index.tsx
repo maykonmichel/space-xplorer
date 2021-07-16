@@ -1,30 +1,18 @@
 import React, {FC} from 'react';
 import {FlatList, ListRenderItem} from 'react-native';
 
-import {useFavoriteImages} from '~/data/favoriteImages';
 import LaunchImage from '~/molecules/LaunchImage';
 
-const keyExtractor = (uri: string) => uri;
+import useLaunchImages from './useLaunchImages';
 
-type Props = {
+const keyExtractor = (uri: string, index: number) => `${uri}_${index}`;
+
+export type Props = {
   data: string[];
 };
 
 const LaunchImages: FC<Props> = ({data}) => {
-  const {
-    client: {cache},
-    data: {favoriteImages = []} = {},
-  } = useFavoriteImages();
-
-  const toggleFavorite = (uri: string) =>
-    cache.modify({
-      fields: {
-        favoriteImages: () =>
-          favoriteImages.includes(uri)
-            ? favoriteImages.filter(image => image !== uri)
-            : [...favoriteImages, uri],
-      },
-    });
+  const {slice, toggleFavorite} = useLaunchImages(data);
 
   const renderItem: ListRenderItem<string> = ({item}) => (
     <LaunchImage uri={item} onPress={toggleFavorite} />
@@ -32,7 +20,7 @@ const LaunchImages: FC<Props> = ({data}) => {
 
   return (
     <FlatList
-      data={data}
+      data={slice}
       keyExtractor={keyExtractor}
       renderItem={renderItem}
       horizontal

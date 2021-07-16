@@ -1,4 +1,4 @@
-import {render} from '@testing-library/react-native';
+import {fireEvent, render} from '@testing-library/react-native';
 import faker from 'faker';
 import React from 'react';
 
@@ -15,5 +15,17 @@ describe('<LaunchImage />', () => {
     const {toJSON} = render(<LaunchImage {...props} />);
 
     expect(toJSON()).toMatchSnapshot();
+  });
+
+  it('should call onPress prop with uri arg on tap', () => {
+    const props = getProps();
+    const {uri, onPress} = props;
+    const {getByA11yLabel} = render(<LaunchImage {...props} />);
+
+    const touchable = getByA11yLabel('Toggle favorite');
+
+    fireEvent.press(touchable);
+
+    expect(onPress).toBeCalledWith(uri);
   });
 });

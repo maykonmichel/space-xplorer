@@ -1,17 +1,21 @@
 import {MockedProvider} from '@apollo/client/testing';
-import {render} from '@testing-library/react-native';
+import {fireEvent, render} from '@testing-library/react-native';
 import faker from 'faker';
 import React from 'react';
 
 import cache from '~/data/cache';
 import {fakerLaunch} from '~/data/launch/faker';
 import LaunchCard, {Props} from '~/organisms/LaunchCard';
+import {LAUNCH} from '~/screens';
+
+const mockedNavigate = jest.fn();
 
 jest.mock('@react-navigation/native', () => {
   const actual = jest.requireActual('@react-navigation/native');
   return {
     ...actual,
     useNavigation: () => ({
+      navigate: mockedNavigate,
       dispatch: jest.fn(),
     }),
   };
@@ -77,5 +81,18 @@ describe('<LaunchCard />', () => {
     } = props;
 
     expect(getByA11yLabel('Launch image').props.source.uri).toBe(uri);
+  });
+
+  it('should navigate to launch screen on tap', async () => {
+    const props = getProps();
+    const {getByA11yLabel} = getSut(props);
+
+    const launchCard = getByA11yLabel('Launch card');
+
+    fireEvent.press(launchCard);
+
+    const {id} = props;
+
+    expect(mockedNavigate).toBeCalledWith(LAUNCH, {id});
   });
 });

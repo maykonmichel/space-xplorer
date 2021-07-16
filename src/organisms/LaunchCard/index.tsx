@@ -23,9 +23,8 @@ const LaunchCard: FC<Props> = ({
     <TouchableOpacity
       accessibilityLabel={'Launch card'}
       accessibilityHint={'See launch details'}
-      onPress={onPress}>
-      <Text accessibilityLabel={'Launch name'}>{mission_name}</Text>
-      <Text accessibilityLabel={'Launch date'}>{launch_date_formatted}</Text>
+      onPress={onPress}
+      style={styles.container}>
       {uri && (
         <FastImage
           accessibilityLabel={'Launch image'}
@@ -33,6 +32,13 @@ const LaunchCard: FC<Props> = ({
           style={styles.image}
         />
       )}
+      <Text style={styles.title} accessibilityLabel={'Launch name'}>
+        {mission_name}
+      </Text>
+      <Text style={styles.date} accessibilityLabel={'Launch date'}>
+        {launch_date_formatted}
+      </Text>
+      <Text style={styles.button}>See more</Text>
     </TouchableOpacity>
   );
 };

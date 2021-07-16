@@ -3,6 +3,7 @@
 exports[`<LaunchImage /> should render as expected 1`] = `
 <View
   accessibilityLabel="Toggle favorite"
+  accessibilityRole="imagebutton"
   accessible={true}
   focusable={true}
   onClick={[Function]}

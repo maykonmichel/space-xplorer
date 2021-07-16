@@ -13,14 +13,20 @@ exports[`<LaunchImages /> should render as expected 1`] = `
   autoplayInterval={3000}
   callbackOffsetMargin={5}
   containerCustomStyle={Object {}}
-  contentContainerCustomStyle={Object {}}
+  contentContainerCustomStyle={
+    Object {
+      "marginVertical": 40,
+    }
+  }
   contentContainerStyle={
     Array [
       Object {
         "paddingLeft": 75,
         "paddingRight": 75,
       },
-      Object {},
+      Object {
+        "marginVertical": 40,
+      },
     ]
   }
   data={
@@ -119,6 +125,7 @@ exports[`<LaunchImages /> should render as expected 1`] = `
       >
         <View
           accessibilityLabel="Toggle favorite"
+          accessibilityRole="imagebutton"
           accessible={true}
           focusable={true}
           onClick={[Function]}

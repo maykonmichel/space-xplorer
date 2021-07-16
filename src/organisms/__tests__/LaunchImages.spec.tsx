@@ -1,9 +1,15 @@
 import {MockedProvider} from '@apollo/client/testing';
-import {render} from '@testing-library/react-native';
+import {
+  fireEvent,
+  render,
+  waitFor,
+  within,
+} from '@testing-library/react-native';
 import faker from 'faker';
 import React from 'react';
 
 import cache, {initializeCache} from '~/data/cache';
+import {readFavoriteImages} from '~/data/favoriteImages';
 import {fakerFlickrImages} from '~/data/launch/faker';
 import LaunchImages, {Props} from '~/organisms/LaunchImages';
 
@@ -37,5 +43,25 @@ describe('<LaunchImages />', () => {
     const images = queryAllByA11yLabel('Toggle favorite');
 
     expect(images.length).toBeLessThanOrEqual(3);
+  });
+
+  it('should add favorite image on tap', async () => {
+    const props = getProps();
+    const {getAllByA11yLabel} = getSut(props);
+
+    expect(readFavoriteImages(cache)).toStrictEqual({favoriteImages: []});
+
+    const [touchable] = getAllByA11yLabel('Toggle favorite');
+
+    fireEvent.press(touchable);
+
+    await waitFor(() => {});
+
+    const {getByA11yRole} = within(touchable);
+    const image = getByA11yRole('image');
+
+    expect(readFavoriteImages(cache)).toStrictEqual({
+      favoriteImages: [image.props.source.uri],
+    });
   });
 });

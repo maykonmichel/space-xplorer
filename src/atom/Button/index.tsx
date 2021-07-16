@@ -3,7 +3,7 @@ import {ButtonProps, Text, TouchableOpacity, ViewStyle} from 'react-native';
 
 import styles from './styles';
 
-type Props = ButtonProps & {
+export type Props = ButtonProps & {
   style?: ViewStyle;
 };
 

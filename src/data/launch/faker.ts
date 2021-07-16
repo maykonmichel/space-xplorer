@@ -9,13 +9,13 @@ export const fakerFlickrImages = (): Launch['links']['flickr_images'] =>
 export const fakerLaunch = (): Launch => ({
   id: faker.datatype.number().toString(),
   details: faker.lorem.paragraph(),
-  mission_name: faker.random.words(),
+  mission_name: faker.lorem.words(),
   launch_date_formatted: faker.date.past().toLocaleDateString(),
   links: {
     article_link: faker.internet.url(),
     flickr_images: fakerFlickrImages(),
   },
   rocket: {
-    rocket_name: faker.random.words(),
+    rocket_name: faker.lorem.words(),
   },
 });

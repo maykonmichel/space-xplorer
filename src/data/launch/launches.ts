@@ -4,10 +4,10 @@ import {Launch} from '~/data/launch';
 
 const QUERY = gql`
   {
-    launchesPast(limit: 10, sort: "launch_date_local") {
+    launchesPast(limit: 10) {
       id
       mission_name
-      launch_date_local
+      launch_date_formatted
       links {
         flickr_images
       }

@@ -13,7 +13,10 @@ const LaunchImage: FC<Props> = ({onPress, uri}) => {
   const emit = () => onPress(uri);
 
   return (
-    <TouchableOpacity onPress={emit} accessibilityLabel={'Toggle favorite'}>
+    <TouchableOpacity
+      onPress={emit}
+      accessibilityLabel={'Toggle favorite'}
+      accessibilityRole={'imagebutton'}>
       <FastImage
         source={{uri}}
         style={styles.image}

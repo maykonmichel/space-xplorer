@@ -9,7 +9,7 @@ import faker from 'faker';
 import React from 'react';
 
 import cache, {initializeCache} from '~/data/cache';
-import {readFavoriteImages} from '~/data/favoriteImages';
+import {readFavoriteImages, writeFavoriteImages} from '~/data/favoriteImages';
 import {fakerFlickrImages} from '~/data/launch/faker';
 import LaunchImages, {Props} from '~/organisms/LaunchImages';
 
@@ -62,6 +62,24 @@ describe('<LaunchImages />', () => {
 
     expect(readFavoriteImages(cache)).toStrictEqual({
       favoriteImages: [image.props.source.uri],
+    });
+  });
+
+  it('should remove favorite image on tap again', async () => {
+    const props = getProps();
+
+    writeFavoriteImages(cache, props.data.slice(0, 1));
+
+    const {getAllByA11yLabel} = getSut(props);
+
+    const [touchable] = getAllByA11yLabel('Toggle favorite');
+
+    fireEvent.press(touchable);
+
+    await waitFor(() => {});
+
+    expect(readFavoriteImages(cache)).toStrictEqual({
+      favoriteImages: [],
     });
   });
 });

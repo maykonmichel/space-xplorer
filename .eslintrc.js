@@ -5,4 +5,7 @@ module.exports = {
     'no-console': 'error',
     curly: ['error', 'multi'],
   },
+  env: {
+    jest: true,
+  },
 };

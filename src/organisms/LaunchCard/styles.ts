@@ -4,16 +4,15 @@ import colors from '~/theme/colors';
 
 export default StyleSheet.create({
   button: {
-    margin: 16,
-    color: colors.secondary.light,
-    textTransform: 'uppercase',
-    fontWeight: 'bold',
+    marginVertical: 8,
   },
   container: {
+    alignItems: 'flex-start',
     marginHorizontal: 16,
     marginVertical: 8,
     borderRadius: 4,
     backgroundColor: colors.neutral.light,
+    elevation: 4,
   },
   date: {
     marginHorizontal: 16,

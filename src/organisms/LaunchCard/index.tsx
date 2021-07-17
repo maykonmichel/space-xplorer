@@ -1,7 +1,8 @@
 import React, {FC} from 'react';
-import {Text, TouchableOpacity} from 'react-native';
+import {Text, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
 
+import Button from '~/atoms/Button';
 import {Launch} from '~/data/launch';
 
 import styles from './styles';
@@ -20,11 +21,7 @@ const LaunchCard: FC<Props> = ({
   const {onPress} = useLaunchCard(id);
 
   return (
-    <TouchableOpacity
-      accessibilityLabel={'Launch card'}
-      accessibilityHint={'See launch details'}
-      onPress={onPress}
-      style={styles.container}>
+    <View accessibilityLabel={'Launch card'} style={styles.container}>
       {uri && (
         <FastImage
           accessibilityLabel={'Launch image'}
@@ -38,8 +35,13 @@ const LaunchCard: FC<Props> = ({
       <Text style={styles.date} accessibilityLabel={'Launch date'}>
         {launch_date_formatted}
       </Text>
-      <Text style={styles.button}>See more</Text>
-    </TouchableOpacity>
+      <Button
+        title={'See more'}
+        onPress={onPress}
+        variant={'text'}
+        style={styles.button}
+      />
+    </View>
   );
 };
 

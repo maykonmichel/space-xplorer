@@ -95,4 +95,22 @@ describe('<LaunchImages />', () => {
       favoriteImages: [uri],
     });
   });
+
+  it('should remove favorite image on tap heart of favorite image', async () => {
+    const props = getProps();
+
+    writeFavoriteImages(cache, props.data.slice(0, 1));
+
+    const {getAllByA11yRole} = getSut(props);
+
+    const [button] = getAllByA11yRole('switch');
+
+    fireEvent.press(button);
+
+    await waitFor(() => {});
+
+    expect(readFavoriteImages(cache)).toStrictEqual({
+      favoriteImages: [],
+    });
+  });
 });

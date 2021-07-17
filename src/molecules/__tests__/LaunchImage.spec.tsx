@@ -25,14 +25,14 @@ describe('<LaunchImage />', () => {
     expect(toJSON()).toMatchSnapshot();
   });
 
-  it('should call onPress prop with uri arg on tap', () => {
+  it('should call onPress prop with uri arg on tap button', () => {
     const props = getProps();
     const {uri, onPress} = props;
-    const {getByA11yLabel} = render(<LaunchImage {...props} />);
+    const {getByA11yRole} = render(<LaunchImage {...props} />);
 
-    const touchable = getByA11yLabel('Toggle favorite');
+    const button = getByA11yRole('button');
 
-    fireEvent.press(touchable);
+    fireEvent.press(button);
 
     expect(onPress).toBeCalledWith(uri);
   });

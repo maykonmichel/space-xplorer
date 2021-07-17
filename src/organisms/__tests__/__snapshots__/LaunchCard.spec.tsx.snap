@@ -2,24 +2,15 @@
 
 exports[`<LaunchCard /> should render as expected 1`] = `
 <View
-  accessibilityHint="See launch details"
   accessibilityLabel="Launch card"
-  accessible={true}
-  focusable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "flex-start",
       "backgroundColor": "#FAFAFA",
       "borderRadius": 4,
+      "elevation": 4,
       "marginHorizontal": 16,
       "marginVertical": 8,
-      "opacity": 1,
     }
   }
 >
@@ -81,17 +72,42 @@ exports[`<LaunchCard /> should render as expected 1`] = `
   >
     01/01/1998 00:00am
   </Text>
-  <Text
+  <View
+    accessibilityLabel="See more"
+    accessibilityRole="button"
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "color": "#FF77A9",
-        "fontWeight": "bold",
-        "margin": 16,
-        "textTransform": "uppercase",
+        "borderColor": "#EC407A",
+        "borderRadius": 4,
+        "borderWidth": 0,
+        "marginVertical": 8,
+        "opacity": 1,
+        "paddingHorizontal": 16,
+        "paddingVertical": 8,
       }
     }
   >
-    See more
-  </Text>
+    <Text
+      style={
+        Object {
+          "color": "#EC407A",
+          "fontWeight": "bold",
+          "textAlign": "center",
+          "textTransform": "uppercase",
+        }
+      }
+    >
+      See more
+    </Text>
+  </View>
 </View>
 `;

@@ -87,9 +87,9 @@ describe('<LaunchCard />', () => {
     const props = getProps();
     const {getByA11yLabel} = getSut(props);
 
-    const launchCard = getByA11yLabel('Launch card');
+    const seeMoreButton = getByA11yLabel('See more');
 
-    fireEvent.press(launchCard);
+    fireEvent.press(seeMoreButton);
 
     const {id} = props;
 

@@ -1,10 +1,5 @@
 import {MockedProvider} from '@apollo/client/testing';
-import {
-  fireEvent,
-  render,
-  waitFor,
-  within,
-} from '@testing-library/react-native';
+import {fireEvent, render, waitFor} from '@testing-library/react-native';
 import faker from 'faker';
 import React from 'react';
 
@@ -38,43 +33,42 @@ describe('<LaunchImages />', () => {
 
   it('should show at most 3 images', async () => {
     const props = getProps();
-    const {queryAllByA11yLabel} = getSut(props);
+    const {queryAllByA11yRole} = getSut(props);
 
-    const images = queryAllByA11yLabel('Toggle favorite');
+    const images = queryAllByA11yRole('image');
 
     expect(images.length).toBeLessThanOrEqual(3);
   });
 
-  it('should add favorite image on tap', async () => {
+  it('should add favorite image on tap button', async () => {
     const props = getProps();
-    const {getAllByA11yLabel} = getSut(props);
+    const {getAllByA11yRole} = getSut(props);
 
-    expect(readFavoriteImages(cache)).toStrictEqual({favoriteImages: []});
+    const [button] = getAllByA11yRole('button');
 
-    const [touchable] = getAllByA11yLabel('Toggle favorite');
-
-    fireEvent.press(touchable);
+    fireEvent.press(button);
 
     await waitFor(() => {});
 
-    const {getByA11yRole} = within(touchable);
-    const image = getByA11yRole('image');
+    const {
+      data: [uri],
+    } = props;
 
     expect(readFavoriteImages(cache)).toStrictEqual({
-      favoriteImages: [image.props.source.uri],
+      favoriteImages: [uri],
     });
   });
 
-  it('should remove favorite image on tap again', async () => {
+  it('should remove favorite image on tap button of favorite image', async () => {
     const props = getProps();
 
     writeFavoriteImages(cache, props.data.slice(0, 1));
 
-    const {getAllByA11yLabel} = getSut(props);
+    const {getAllByA11yRole} = getSut(props);
 
-    const [touchable] = getAllByA11yLabel('Toggle favorite');
+    const [button] = getAllByA11yRole('button');
 
-    fireEvent.press(touchable);
+    fireEvent.press(button);
 
     await waitFor(() => {});
 

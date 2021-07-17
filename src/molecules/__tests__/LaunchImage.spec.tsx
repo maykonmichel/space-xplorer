@@ -36,4 +36,16 @@ describe('<LaunchImage />', () => {
 
     expect(onPress).toBeCalledWith(uri);
   });
+
+  it('should call onPress prop with uri arg on tap heart', () => {
+    const props = getProps();
+    const {uri, onPress} = props;
+    const {getByA11yRole} = render(<LaunchImage {...props} />);
+
+    const button = getByA11yRole('switch');
+
+    fireEvent.press(button);
+
+    expect(onPress).toBeCalledWith(uri);
+  });
 });

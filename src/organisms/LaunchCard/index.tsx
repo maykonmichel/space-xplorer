@@ -36,6 +36,7 @@ const LaunchCard: FC<Props> = ({
         {launch_date_formatted}
       </Text>
       <Button
+        accessibilityLabel={'See more'}
         title={'See more'}
         onPress={onPress}
         variant={'text'}

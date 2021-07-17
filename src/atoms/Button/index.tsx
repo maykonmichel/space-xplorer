@@ -5,12 +5,13 @@ import {useStyles} from './styles';
 import {Props} from './types';
 
 const Button: FC<Props> = props => {
-  const {onPress, style, title} = props;
+  const {accessibilityLabel, onPress, style, title} = props;
 
   const styles = useStyles(props);
 
   return (
     <TouchableOpacity
+      accessibilityLabel={accessibilityLabel}
       accessibilityRole={'button'}
       style={[styles.container, style]}
       onPress={onPress}>

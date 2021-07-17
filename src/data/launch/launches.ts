@@ -7,7 +7,7 @@ const QUERY = gql`
     launchesPast(limit: 10) {
       id
       mission_name
-      launch_date_formatted
+      launch_date_formatted @client
       links {
         flickr_images
       }

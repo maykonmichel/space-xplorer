@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {ScrollView, Text} from 'react-native';
 
-import Button from '~/atom/Button';
+import Button from '~/atoms/Button';
 import LaunchImages from '~/organisms/LaunchImages';
 
 import styles from './styles';

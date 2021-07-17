@@ -7,12 +7,20 @@ import LaunchImage, {Props} from '~/molecules/LaunchImage';
 const getProps = (): Props => ({
   uri: faker.image.imageUrl(),
   onPress: jest.fn(),
+  favorite: faker.datatype.boolean(),
 });
 
 describe('<LaunchImage />', () => {
   it('should render as expected', () => {
     const props = getProps();
-    const {toJSON} = render(<LaunchImage {...props} />);
+    const {toJSON} = render(<LaunchImage {...props} favorite={false} />);
+
+    expect(toJSON()).toMatchSnapshot();
+  });
+
+  it('should render favorite as expected', () => {
+    const props = getProps();
+    const {toJSON} = render(<LaunchImage {...props} favorite={true} />);
 
     expect(toJSON()).toMatchSnapshot();
   });

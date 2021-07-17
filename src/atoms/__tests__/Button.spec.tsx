@@ -2,7 +2,7 @@ import {fireEvent, render} from '@testing-library/react-native';
 import faker from 'faker';
 import React from 'react';
 
-import Button, {Props} from '~/atom/Button';
+import Button, {Props} from '~/atoms/Button';
 
 const getProps = (): Props => ({
   title: faker.lorem.words(),

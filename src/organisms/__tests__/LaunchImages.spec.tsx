@@ -76,4 +76,23 @@ describe('<LaunchImages />', () => {
       favoriteImages: [],
     });
   });
+
+  it('should add favorite image on tap hearth', async () => {
+    const props = getProps();
+    const {getAllByA11yRole} = getSut(props);
+
+    const [button] = getAllByA11yRole('switch');
+
+    fireEvent.press(button);
+
+    await waitFor(() => {});
+
+    const {
+      data: [uri],
+    } = props;
+
+    expect(readFavoriteImages(cache)).toStrictEqual({
+      favoriteImages: [uri],
+    });
+  });
 });

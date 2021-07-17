@@ -6,6 +6,7 @@ import FastImage from 'react-native-fast-image';
 import favoriteAnimation from '~/assets/animations/favorite.json';
 
 import styles from './styles';
+import useAnimation from './useAnimation';
 
 export type Props = {
   favorite: boolean;
@@ -17,6 +18,8 @@ const LaunchImage: FC<Props> = ({favorite, onPress, uri}) => {
   const emit = () => onPress(uri);
 
   const text = favorite ? 'Remove from favorites' : 'Add to favorites';
+
+  const animation = useAnimation(favorite);
 
   return (
     <TouchableOpacity
@@ -30,6 +33,7 @@ const LaunchImage: FC<Props> = ({favorite, onPress, uri}) => {
         accessibilityRole={'image'}
       />
       <LottieView
+        ref={animation}
         source={favoriteAnimation}
         style={styles.animation}
         loop={false}

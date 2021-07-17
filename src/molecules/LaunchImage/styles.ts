@@ -3,6 +3,12 @@ import {StyleSheet} from 'react-native';
 import colors from '~/theme/colors';
 
 export default StyleSheet.create({
+  animation: {
+    position: 'absolute',
+    left: -5,
+    top: -5,
+    width: 75,
+  },
   container: {
     borderRadius: 4,
   },

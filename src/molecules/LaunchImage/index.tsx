@@ -1,6 +1,9 @@
+import LottieView from 'lottie-react-native';
 import React, {FC} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
+
+import favoriteAnimation from '~/assets/animations/favorite.json';
 
 import styles from './styles';
 
@@ -25,6 +28,11 @@ const LaunchImage: FC<Props> = ({favorite, onPress, uri}) => {
         source={{uri}}
         style={styles.image}
         accessibilityRole={'image'}
+      />
+      <LottieView
+        source={favoriteAnimation}
+        style={styles.animation}
+        loop={false}
       />
       <View style={[styles.footer, favorite && styles.footerFavorite]}>
         <Text style={[styles.text, favorite && styles.textFavorite]}>

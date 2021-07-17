@@ -7,7 +7,6 @@ export default StyleSheet.create({
     position: 'absolute',
     left: -5,
     top: -5,
-    width: 75,
   },
   container: {
     borderRadius: 4,
@@ -18,9 +17,6 @@ export default StyleSheet.create({
     borderBottomLeftRadius: 4,
     borderBottomRightRadius: 4,
   },
-  footerFavorite: {
-    backgroundColor: colors.secondary.main,
-  },
   image: {
     aspectRatio: 1920 / 1080,
     width: '100%',
@@ -30,14 +26,13 @@ export default StyleSheet.create({
     borderTopLeftRadius: 4,
     borderTopRightRadius: 4,
   },
+  lottie: {
+    width: 75,
+  },
   text: {
     textAlign: 'center',
     textTransform: 'uppercase',
     fontWeight: 'bold',
-    color: colors.secondary.main,
     marginVertical: 8,
-  },
-  textFavorite: {
-    color: colors.neutral.light,
   },
 });

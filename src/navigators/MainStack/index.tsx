@@ -25,7 +25,15 @@ export const useMainStackNavigation = () => useNavigation<NavigationProp>();
 
 const screenOptions: StackNavigationOptions = {
   headerTintColor: colors.neutral.light,
-  headerStyle: {backgroundColor: colors.primary.main},
+  headerStyle: {
+    backgroundColor: colors.primary.main,
+    elevation: 0,
+    shadowOffset: {
+      height: 0,
+      width: 0,
+    },
+  },
+  headerTitleAlign: 'center',
 };
 
 const MainStack: FC = () => {

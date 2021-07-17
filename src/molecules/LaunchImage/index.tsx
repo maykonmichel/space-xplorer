@@ -1,6 +1,6 @@
 import LottieView from 'lottie-react-native';
 import React, {FC} from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Animated, TouchableOpacity, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
 
 import favoriteAnimation from '~/assets/animations/favorite.json';
@@ -17,33 +17,41 @@ export type Props = {
 const LaunchImage: FC<Props> = ({favorite, onPress, uri}) => {
   const emit = () => onPress(uri);
 
-  const text = favorite ? 'Remove from favorites' : 'Add to favorites';
-
-  const animation = useAnimation(favorite);
+  const {backgroundColor, color, opacity, progress, text} =
+    useAnimation(favorite);
 
   return (
-    <TouchableOpacity
-      onPress={emit}
-      accessibilityLabel={'Toggle favorite'}
-      accessibilityRole={'imagebutton'}
-      style={styles.container}>
+    <View accessibilityLabel={'Launch image'}>
       <FastImage
         source={{uri}}
         style={styles.image}
         accessibilityRole={'image'}
       />
-      <LottieView
-        ref={animation}
-        source={favoriteAnimation}
-        style={styles.animation}
-        loop={false}
-      />
-      <View style={[styles.footer, favorite && styles.footerFavorite]}>
-        <Text style={[styles.text, favorite && styles.textFavorite]}>
-          {text}
-        </Text>
-      </View>
-    </TouchableOpacity>
+      <TouchableOpacity
+        onPress={emit}
+        accessibilityLabel={text}
+        accessibilityRole={'switch'}
+        accessibilityState={{selected: favorite}}
+        style={styles.animation}>
+        <LottieView
+          style={styles.lottie}
+          source={favoriteAnimation}
+          loop={false}
+          progress={progress}
+        />
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={emit}
+        accessibilityLabel={text}
+        accessibilityRole={'button'}
+        style={styles.footer}>
+        <Animated.View style={{backgroundColor}}>
+          <Animated.Text style={[styles.text, {color, opacity}]}>
+            {text}
+          </Animated.Text>
+        </Animated.View>
+      </TouchableOpacity>
+    </View>
   );
 };
 

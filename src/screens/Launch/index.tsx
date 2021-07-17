@@ -1,16 +1,22 @@
 import React, {FC} from 'react';
-import {ScrollView, Text} from 'react-native';
+import {ScrollView, Text, View} from 'react-native';
 
 import Button from '~/atoms/Button';
+import Feedback from '~/atoms/Feedback';
+import Label from '~/atoms/Label';
 import LaunchImages from '~/organisms/LaunchImages';
 
 import styles from './styles';
 import useLaunchScreen from './useLaunchScreen';
 
 const Launch: FC = () => {
-  const {launch, openArticle} = useLaunchScreen();
+  const {error, launch, loading, openArticle} = useLaunchScreen();
 
-  if (!launch) return null;
+  if (loading) return <Feedback type={'loading'} />;
+
+  if (error) return <Feedback type={'error'} />;
+
+  if (!launch) return <Feedback type={'empty'} />;
 
   const {
     details,
@@ -21,10 +27,23 @@ const Launch: FC = () => {
 
   return (
     <ScrollView>
-      <Text style={styles.title}>{rocket_name}</Text>
-      <Text style={styles.date}>{launch_date_formatted}</Text>
+      <View style={styles.header}>
+        <View style={styles.left}>
+          <Label>Rocket name</Label>
+          <Text style={styles.title}>{rocket_name}</Text>
+        </View>
+        <View style={styles.right}>
+          <Label>Launch date</Label>
+          <Text style={styles.date}>{launch_date_formatted}</Text>
+        </View>
+      </View>
       <LaunchImages data={flickr_images} />
-      <Text style={styles.details}>{details}</Text>
+      {!!details && (
+        <>
+          <Label style={styles.label}>Details</Label>
+          <Text style={styles.details}>{details}</Text>
+        </>
+      )}
       {article_link && (
         <Button
           title={'Read article'}

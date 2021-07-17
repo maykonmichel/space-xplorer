@@ -1,18 +1,20 @@
 import React, {FC} from 'react';
-import {ButtonProps, Text, TouchableOpacity, ViewStyle} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
 
-import styles from './styles';
+import {useStyles} from './styles';
+import {Props} from './types';
 
-export type Props = ButtonProps & {
-  style?: ViewStyle;
-};
+const Button: FC<Props> = props => {
+  const {accessibilityLabel, onPress, style, title} = props;
 
-const Button: FC<Props> = ({title, style, ...props}) => {
+  const styles = useStyles(props);
+
   return (
     <TouchableOpacity
+      accessibilityLabel={accessibilityLabel}
       accessibilityRole={'button'}
       style={[styles.container, style]}
-      {...props}>
+      onPress={onPress}>
       <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
   );

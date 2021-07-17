@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {FlatList, ListRenderItem} from 'react-native';
-
+import Feedback from '~/atoms/Feedback';
 import {Launch} from '~/data/launch';
 import {useLaunchesQuery} from '~/data/launch/launches';
 import LaunchCard from '~/organisms/LaunchCard';
@@ -12,11 +12,13 @@ const keyExtractor = ({id}: Launch) => id;
 const renderItem: ListRenderItem<Launch> = ({item}) => <LaunchCard {...item} />;
 
 const Launches: FC = () => {
-  const {data} = useLaunchesQuery();
+  const {data: {launchesPast} = {}, error, loading} = useLaunchesQuery();
 
-  if (!data) return null;
+  if (loading) return <Feedback type={'loading'} />;
 
-  const {launchesPast} = data;
+  if (error) return <Feedback type={'error'} />;
+
+  if (!launchesPast) return <Feedback type={'empty'} />;
 
   return (
     <FlatList

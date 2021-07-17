@@ -5,7 +5,7 @@ import colors from '~/theme/colors';
 export default StyleSheet.create({
   button: {
     alignSelf: 'center',
-    marginVertical: 24,
+    marginVertical: 16,
   },
   date: {
     marginHorizontal: 16,

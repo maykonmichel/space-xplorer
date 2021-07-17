@@ -23,6 +23,7 @@ export default (data: string[]) => {
   const slice = data.slice(0, MAX);
 
   return {
+    isFavorite,
     slice,
     toggleFavorite,
   };

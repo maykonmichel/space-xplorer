@@ -17,10 +17,14 @@ export type Props = {
 };
 
 const LaunchImages: FC<Props> = ({data}) => {
-  const {slice, toggleFavorite} = useLaunchImages(data);
+  const {isFavorite, slice, toggleFavorite} = useLaunchImages(data);
 
   const renderItem: ListRenderItem<string> = ({item}) => (
-    <LaunchImage uri={item} onPress={toggleFavorite} />
+    <LaunchImage
+      favorite={isFavorite(item)}
+      uri={item}
+      onPress={toggleFavorite}
+    />
   );
 
   return (

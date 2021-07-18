@@ -18,6 +18,15 @@ describe('<Button />', () => {
     expect(toJSON()).toMatchSnapshot();
   });
 
+  it('should render primary as expected', () => {
+    const props = getProps();
+    const {toJSON} = render(
+      <Button {...props} title={'Test button'} color={'primary'} />,
+    );
+
+    expect(toJSON()).toMatchSnapshot();
+  });
+
   it('should show title', () => {
     const props = getProps();
     const {queryByText} = render(<Button {...props} />);

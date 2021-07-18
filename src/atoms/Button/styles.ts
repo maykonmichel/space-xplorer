@@ -4,8 +4,17 @@ import colors from '~/theme/colors';
 
 import {Color, Props} from './types';
 
-const getHex = (color?: Color) =>
-  color === 'light' ? colors.neutral.light : colors.secondary.main;
+const getHex = (color?: Color) => {
+  switch (color) {
+    case 'light':
+      return colors.neutral.light;
+    case 'secondary':
+      return colors.secondary.main;
+    case 'primary':
+    default:
+      return colors.primary.main;
+  }
+};
 
 export const useStyles = ({color, variant}: Props) => {
   const hex = getHex(color);

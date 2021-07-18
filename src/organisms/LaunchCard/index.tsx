@@ -39,6 +39,7 @@ const LaunchCard: FC<Props> = ({
         accessibilityLabel={'See more'}
         title={'See more'}
         onPress={onPress}
+        color={'secondary'}
         variant={'text'}
         style={styles.button}
       />

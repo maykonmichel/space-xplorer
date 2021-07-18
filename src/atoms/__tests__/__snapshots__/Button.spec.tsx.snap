@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button /> should render as expected 1`] = `
+exports[`<Button /> should render default as expected 1`] = `
 <View
   accessibilityRole="button"
   accessible={true}
@@ -14,7 +14,7 @@ exports[`<Button /> should render as expected 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
-      "borderColor": "#EC407A",
+      "borderColor": "#EF5350",
       "borderRadius": 4,
       "borderWidth": 1,
       "opacity": 1,
@@ -26,7 +26,7 @@ exports[`<Button /> should render as expected 1`] = `
   <Text
     style={
       Object {
-        "color": "#EC407A",
+        "color": "#EF5350",
         "fontWeight": "bold",
         "textAlign": "center",
         "textTransform": "uppercase",

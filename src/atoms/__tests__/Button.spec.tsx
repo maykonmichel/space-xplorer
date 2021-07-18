@@ -11,7 +11,7 @@ const getProps = (): Props => ({
 });
 
 describe('<Button />', () => {
-  it('should render as expected', () => {
+  it('should render default as expected', () => {
     const props = getProps();
     const {toJSON} = render(<Button {...props} title={'Test button'} />);
 

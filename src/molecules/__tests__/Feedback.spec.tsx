@@ -8,6 +8,7 @@ jest.mock('@react-navigation/native', () => {
   return {
     ...actual,
     useNavigation: () => ({
+      canGoBack: jest.fn(),
       dispatch: jest.fn(),
     }),
   };
@@ -16,6 +17,12 @@ jest.mock('@react-navigation/native', () => {
 describe('<Feedback />', () => {
   it('should render empty as expected', () => {
     const {toJSON} = render(<Feedback type={'empty'} />);
+
+    expect(toJSON()).toMatchSnapshot();
+  });
+
+  it('should render error as expected', () => {
+    const {toJSON} = render(<Feedback type={'error'} />);
 
     expect(toJSON()).toMatchSnapshot();
   });

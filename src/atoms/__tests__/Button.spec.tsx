@@ -45,6 +45,15 @@ describe('<Button />', () => {
     expect(toJSON()).toMatchSnapshot();
   });
 
+  it('should render outlined as expected', () => {
+    const props = getProps();
+    const {toJSON} = render(
+      <Button {...props} title={'Test button'} variant={'outlined'} />,
+    );
+
+    expect(toJSON()).toMatchSnapshot();
+  });
+
   it('should show title', () => {
     const props = getProps();
     const {queryByText} = render(<Button {...props} />);

@@ -26,4 +26,10 @@ describe('<Feedback />', () => {
 
     expect(toJSON()).toMatchSnapshot();
   });
+
+  it('should render loading as expected', () => {
+    const {toJSON} = render(<Feedback type={'loading'} />);
+
+    expect(toJSON()).toMatchSnapshot();
+  });
 });

@@ -41,6 +41,7 @@ This project uses [SpaceX open API](https://api.spacex.land/) to show the latest
 
 ### 💡 Roadmap
 
+- ☑️ Full compatibility with dark theme
 - ☑️ Infinite scroll
 - ☑️ Pull to refresh
 - ☑️ Icon

@@ -15,20 +15,20 @@ jest.mock('@react-navigation/native', () => {
 });
 
 describe('<Feedback />', () => {
+  it('should render loading as expected', () => {
+    const {toJSON} = render(<Feedback type={'loading'} />);
+
+    expect(toJSON()).toMatchSnapshot();
+  });
+
   it('should render empty as expected', () => {
     const {toJSON} = render(<Feedback type={'empty'} />);
 
     expect(toJSON()).toMatchSnapshot();
   });
 
-  it('should render error as expected', () => {
+  it('should render error without button as expected', () => {
     const {toJSON} = render(<Feedback type={'error'} />);
-
-    expect(toJSON()).toMatchSnapshot();
-  });
-
-  it('should render loading as expected', () => {
-    const {toJSON} = render(<Feedback type={'loading'} />);
 
     expect(toJSON()).toMatchSnapshot();
   });

@@ -60,7 +60,7 @@ exports[`<Feedback /> should render empty as expected 1`] = `
 </View>
 `;
 
-exports[`<Feedback /> should render error as expected 1`] = `
+exports[`<Feedback /> should render error without button as expected 1`] = `
 <View
   style={
     Object {

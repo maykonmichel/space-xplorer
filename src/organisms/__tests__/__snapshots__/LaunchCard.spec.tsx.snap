@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LaunchCard /> should render as expected 1`] = `
+<View
+  accessibilityLabel="Launch card"
+  style={
+    Object {
+      "alignItems": "flex-start",
+      "backgroundColor": "#FAFAFA",
+      "borderRadius": 4,
+      "elevation": 4,
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "overflow": "hidden",
+        },
+        Object {
+          "aspectRatio": 1.7777777777777777,
+          "borderTopLeftRadius": 4,
+          "borderTopRightRadius": 4,
+          "width": "100%",
+        },
+      ]
+    }
+  >
+    <FastImageView
+      accessibilityLabel="Launch image"
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "http://placeimg.com/640/480",
+        }
+      }
+      style={
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    />
+  </View>
+  <Text
+    accessibilityLabel="Launch name"
+    style={
+      Object {
+        "color": "#212121",
+        "fontSize": 24,
+        "margin": 16,
+        "marginBottom": 4,
+      }
+    }
+  >
+    mission name
+  </Text>
+  <Text
+    accessibilityLabel="Launch date"
+    style={
+      Object {
+        "color": "#9E9E9E",
+        "marginHorizontal": 16,
+      }
+    }
+  >
+    01/01/1998 00:00am
+  </Text>
+  <View
+    accessibilityLabel="See more"
+    accessibilityRole="button"
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "borderColor": "#EC407A",
+        "borderRadius": 4,
+        "borderWidth": 0,
+        "marginVertical": 8,
+        "opacity": 1,
+        "paddingHorizontal": 16,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#EC407A",
+          "fontWeight": "bold",
+          "textAlign": "center",
+          "textTransform": "uppercase",
+        }
+      }
+    >
+      See more
+    </Text>
+  </View>
+</View>
+`;

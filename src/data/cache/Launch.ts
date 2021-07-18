@@ -3,8 +3,8 @@ import {format} from 'date-fns';
 
 const launch_date_formatted: FieldPolicy<string> = {
   read: (existing, {readField}) => {
-    const unix = readField<number>('launch_date_unix') || 0;
-    return format(unix, 'MM/dd/yyyy hh:mmaaa');
+    const date = readField<string>('launch_date_local') || '';
+    return format(new Date(date), 'MM/dd/yyyy hh:mmaaa');
   },
 };
 

@@ -26,7 +26,7 @@ const getText = (type: Type) => {
   }
 };
 
-type Props = {
+export type Props = {
   type: Type;
 };
 

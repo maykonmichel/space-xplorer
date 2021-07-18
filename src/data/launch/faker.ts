@@ -11,6 +11,7 @@ export const fakerLaunch = (): Launch => ({
   details: faker.lorem.paragraph(),
   mission_name: faker.lorem.words(),
   launch_date_formatted: faker.date.past().toLocaleDateString(),
+  launch_date_local: faker.date.past().toLocaleDateString(),
   links: {
     article_link: faker.internet.url(),
     flickr_images: fakerFlickrImages(),

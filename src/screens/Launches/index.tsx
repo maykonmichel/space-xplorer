@@ -1,8 +1,9 @@
 import React, {FC} from 'react';
 import {FlatList, ListRenderItem} from 'react-native';
-import Feedback from '~/atoms/Feedback';
+
 import {Launch} from '~/data/launch';
 import {useLaunchesQuery} from '~/data/launch/launches';
+import Feedback from '~/molecules/Feedback';
 import LaunchCard from '~/organisms/LaunchCard';
 
 import styles from './styles';

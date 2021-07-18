@@ -2,8 +2,8 @@ import React, {FC} from 'react';
 import {ScrollView, Text, View} from 'react-native';
 
 import Button from '~/atoms/Button';
-import Feedback from '~/atoms/Feedback';
 import Label from '~/atoms/Label';
+import Feedback from '~/molecules/Feedback';
 import LaunchImages from '~/organisms/LaunchImages';
 
 import styles from './styles';

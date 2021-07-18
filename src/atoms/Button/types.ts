@@ -1,6 +1,6 @@
 import {ViewStyle} from 'react-native';
 
-export type Color = 'secondary' | 'light';
+export type Color = 'primary' | 'secondary' | 'light';
 
 export type Variant = 'outlined' | 'text';
 

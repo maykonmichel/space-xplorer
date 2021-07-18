@@ -58,3 +58,4 @@ buck-out/
 /ios/Pods/
 
 .jest
+coverage

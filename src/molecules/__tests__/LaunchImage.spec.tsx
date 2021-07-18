@@ -19,8 +19,12 @@ describe('<LaunchImage />', () => {
   });
 
   it('should render favorite as expected', () => {
+    jest.useFakeTimers();
+
     const props = getProps();
     const {toJSON} = render(<LaunchImage {...props} favorite={true} />);
+
+    jest.runAllTimers();
 
     expect(toJSON()).toMatchSnapshot();
   });

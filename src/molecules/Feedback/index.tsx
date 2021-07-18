@@ -26,7 +26,7 @@ const getText = (type: Type) => {
   }
 };
 
-type Props = {
+export type Props = {
   type: Type;
 };
 
@@ -42,7 +42,12 @@ const Feedback: FC<Props> = ({type}) => {
       {showGoBack && <Text style={styles.text}>{text}</Text>}
       <LottieView source={sources[type]} style={styles.animation} autoPlay />
       {showGoBack ? (
-        <Button title={'Go back'} onPress={goBack} color={'light'} />
+        <Button
+          accessibilityLabel={'Go back'}
+          title={'Go back'}
+          onPress={goBack}
+          color={'light'}
+        />
       ) : (
         <Text style={styles.text}>{text}</Text>
       )}

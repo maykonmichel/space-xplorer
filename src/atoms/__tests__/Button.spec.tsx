@@ -11,9 +11,54 @@ const getProps = (): Props => ({
 });
 
 describe('<Button />', () => {
-  it('should render as expected', () => {
+  it('should render default as expected', () => {
     const props = getProps();
     const {toJSON} = render(<Button {...props} title={'Test button'} />);
+
+    expect(toJSON()).toMatchSnapshot();
+  });
+
+  it('should render primary as expected', () => {
+    const props = getProps();
+    const {toJSON} = render(
+      <Button {...props} title={'Test button'} color={'primary'} />,
+    );
+
+    expect(toJSON()).toMatchSnapshot();
+  });
+
+  it('should render secondary as expected', () => {
+    const props = getProps();
+    const {toJSON} = render(
+      <Button {...props} title={'Test button'} color={'secondary'} />,
+    );
+
+    expect(toJSON()).toMatchSnapshot();
+  });
+
+  it('should render light as expected', () => {
+    const props = getProps();
+    const {toJSON} = render(
+      <Button {...props} title={'Test button'} color={'light'} />,
+    );
+
+    expect(toJSON()).toMatchSnapshot();
+  });
+
+  it('should render outlined as expected', () => {
+    const props = getProps();
+    const {toJSON} = render(
+      <Button {...props} title={'Test button'} variant={'outlined'} />,
+    );
+
+    expect(toJSON()).toMatchSnapshot();
+  });
+
+  it('should render text as expected', () => {
+    const props = getProps();
+    const {toJSON} = render(
+      <Button {...props} title={'Test button'} variant={'text'} />,
+    );
 
     expect(toJSON()).toMatchSnapshot();
   });

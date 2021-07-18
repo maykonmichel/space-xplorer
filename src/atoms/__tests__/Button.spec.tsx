@@ -27,6 +27,15 @@ describe('<Button />', () => {
     expect(toJSON()).toMatchSnapshot();
   });
 
+  it('should render secondary as expected', () => {
+    const props = getProps();
+    const {toJSON} = render(
+      <Button {...props} title={'Test button'} color={'secondary'} />,
+    );
+
+    expect(toJSON()).toMatchSnapshot();
+  });
+
   it('should show title', () => {
     const props = getProps();
     const {queryByText} = render(<Button {...props} />);

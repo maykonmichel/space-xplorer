@@ -3,12 +3,14 @@ import React from 'react';
 
 import Feedback from '~/molecules/Feedback';
 
+const mockedCanGoBack = jest.fn();
+
 jest.mock('@react-navigation/native', () => {
   const actual = jest.requireActual('@react-navigation/native');
   return {
     ...actual,
     useNavigation: () => ({
-      canGoBack: jest.fn(),
+      canGoBack: mockedCanGoBack,
       dispatch: jest.fn(),
     }),
   };
@@ -28,6 +30,14 @@ describe('<Feedback />', () => {
   });
 
   it('should render error without button as expected', () => {
+    const {toJSON} = render(<Feedback type={'error'} />);
+
+    expect(toJSON()).toMatchSnapshot();
+  });
+
+  it('should render error with button as expected', () => {
+    mockedCanGoBack.mockImplementationOnce(() => true);
+
     const {toJSON} = render(<Feedback type={'error'} />);
 
     expect(toJSON()).toMatchSnapshot();

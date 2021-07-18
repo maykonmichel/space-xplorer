@@ -8,6 +8,7 @@ const QUERY = gql`
       id
       mission_name
       launch_date_formatted @client
+      launch_date_local
       links {
         flickr_images
       }

@@ -11,7 +11,8 @@
     "lint:fix": "yarn lint --fix",
     "postinstall": "husky install",
     "storybook": "start-storybook -p 7007",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "prestorybook": "rnstl"
   },
   "dependencies": {
     "@apollo/client": "^3.3.21",
@@ -70,5 +71,12 @@
   },
   "resolutions": {
     "@types/react": "^17"
+  },
+  "config": {
+    "react-native-storybook-loader": {
+      "searchDir": ["./src"],
+      "pattern": "**/**/stories.tsx",
+      "outputFile": "./storybook/storyLoader.js"
+    }
   }
 }

@@ -9788,7 +9788,7 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@^2.0.2:
+prettier@^2.0.2, prettier@^2.0.5:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.3.2.tgz#ef280a05ec253712e486233db5c6f23441e7342d"
   integrity sha512-lnJzDfJ66zkMy58OL5/NY5zp70S7Nz6KqcKkXYzn2tMVrNxvbqaBpg7H3qHaLxCJ5lNMsGuM8+ohS7cZrthdLQ==
@@ -10340,6 +10340,17 @@ react-native-snap-carousel@^3.9.1:
   dependencies:
     prop-types "^15.6.1"
     react-addons-shallow-compare "15.6.2"
+
+react-native-storybook-loader@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/react-native-storybook-loader/-/react-native-storybook-loader-2.0.4.tgz#37bf37193e69b42a0b2aa0daeed4de8dbfeeae28"
+  integrity sha512-MmBdO7ugBkHEZa4F1qXFgjB7ejURmKGTZ/3o6zXPgUpaoMdh8tT5LLliJH9uOFzh7oY13TfTMZ9HyCa3E/dqLg==
+  dependencies:
+    colors "^1.1.2"
+    find-up "^4.1.0"
+    glob "^7.1.1"
+    prettier "^2.0.5"
+    yargs "^15.4.1"
 
 react-native-swipe-gestures@^1.0.4:
   version "1.0.5"
